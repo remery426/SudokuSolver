@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <style media="screen">
+      table {
+        background-color: lightgrey;
+      }
+      th {
+        width: 30px;
+        height: 30px;
+        border: solid 1px black;
+      }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+    <h4> {{message}}</h4>
+      {% endfor %}
+    {% endif %}
+    <h1> Enter your sudoku </h1>
+    <table>
+      {% for table in listhelper %}
+        {% if table.id|divisibleby:9 %}
+        <th> <a href="/change/{{table.id}}">{{table.value}}</a></th>
+        </tr>
+        <tr>
+        {% endif %}
+        {% if  not table.id|divisibleby:9 %}
+        <th> <a href="/change/{{table.id}}">{{table.value}}</a></th>
+        {% endif %}
+
+
+      {% endfor %}
+    </table>
+    <p></p>
+    <button type="button" name="button"><a href="/solve">Attempt</a></button><button type="button" name="button"><a href="/clear">Clear</a></button>
+  </body>
+</html>

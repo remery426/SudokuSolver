@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Change Value Page</title>
+  </head>
+  <body>
+    <form class="" action="/changeval/{{request.session.this_id}}" method="post">
+      {% csrf_token %}
+      <input type="text" name="new_val" value="">
+      <input type="submit" name="" value="Change">
+    </form>
+    <a href="/">Go back to board</a>
+  </body>
+</html>
